@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace CountryModel;
 
@@ -19,6 +20,10 @@ public partial class City
     public decimal Longitude { get; set; }
 
     public int CountryId { get; set; }
+    
+    public required string Name { get; set; }
+
+    public int Population { get; set; }
 
     [ForeignKey("CountryId")]
     [InverseProperty("Cities")]
