@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CountryModel;
 using WeatherServer.DTO;
+using Microsoft.AspNetCore.Authorization;
+
+
 
 namespace WeatherServer.Controllers
 {
@@ -20,6 +23,8 @@ namespace WeatherServer.Controllers
         {
             return await context.Cities.ToListAsync();
         }
+        [Authorize]
+
         [HttpGet("GetPopulation")]
         public async Task<ActionResult<IEnumerable<CountryPopulation>>> GetPopulation()
         {
