@@ -23,8 +23,8 @@ namespace WeatherServer.Controllers
         {
             return await context.Cities.ToListAsync();
         }
+        
         [Authorize]
-
         [HttpGet("GetPopulation")]
         public async Task<ActionResult<IEnumerable<CountryPopulation>>> GetPopulation()
         {
